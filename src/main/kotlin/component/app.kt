@@ -48,7 +48,7 @@ interface RouteNumberResult : RProps {
                 route("/lessons",
                     exact = true,
                     render = {
-                        lessonsList(state.lessons)
+                        lessonList(state.lessons)
                     }
                 )
                 route("/students",
@@ -103,10 +103,12 @@ interface RouteNumberResult : RProps {
                 }
             }
 
-        fun RBuilder.app(
-            students: Array<Student>
-        ) = child(App::class) {
-            attrs.students = students
-        }
+
     }
+}
+fun RBuilder.app(
+    students: Array<Student>
+) = child(RouteNumberResult.App::class) {
+    attrs.students = students
+
 }
